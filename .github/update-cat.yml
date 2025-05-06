@@ -1,0 +1,22 @@
+name: Update Cat JSON
+
+on:
+  push:
+    paths:
+      - cat.json
+      - '**/*.js'
+
+jobs:
+  update_cat:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Update cat.json
+        run: |
+          echo "Updating cat.json file"
+          # Modify the cat.json file (you can do it dynamically from here)
+          # Add any logic for your game state update logic
+          git add cat.json
+          git commit -m "Update cat stats"
+          git push
